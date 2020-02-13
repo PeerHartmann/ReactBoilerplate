@@ -1,8 +1,14 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CheckerPlugin } = require('awesome-typescript-loader')
 
 
 module.exports = {
-    entry: './src/index.js',
+    resolve: {
+        extensions: ['.ts', '.tsx', '.js', '.jsx']
+      },
+  // Source maps support ('inline-source-map' also works)
+    devtool: 'source-map',
+    entry: './src/index.tsx',
     mode: 'development',
     module: {
         rules: [
@@ -14,9 +20,20 @@ module.exports = {
               },
             ],
           },
+          {
+            test: /\.tsx?$/,
+            loader: 'awesome-typescript-loader'
+          }
+    
         ],
       },
       plugins: [
-        new HtmlWebpackPlugin()
-      ]
+        new HtmlWebpackPlugin({
+            title: 'Custom template',
+            // Load a custom template (lodash by default)
+            template: 'src/index-react.html'
+        }),
+        new CheckerPlugin()
+    ]
   };
+
