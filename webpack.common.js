@@ -3,16 +3,10 @@ const { CheckerPlugin } = require('awesome-typescript-loader')
 
 
 module.exports = {
-    mode: 'development',
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.jsx']
       },
-    devtool: 'inline-source-map',
-    devServer: {
-         contentBase: './dist',
-    },
     entry: './src/index.tsx',
-    mode: 'development',
     module: {
         rules: [
           {
