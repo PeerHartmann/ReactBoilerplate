@@ -1,9 +1,15 @@
 import React from 'react';
 import { message } from "./messages"
 import image from "./img/octocat.png"
-const style = {
-    width: "200px"
-}
+//import style from './App.module.css'
+
+const style = require('./App.module.css')
+
 export function App() {
-    return <div><img style={style} src={image}></img></div>
+    console.log(style);
+    return <div>
+        
+        <div className={style.message}>{message}</div>
+        <img className={style.image} src={image}></img>
+        </div>
 }
