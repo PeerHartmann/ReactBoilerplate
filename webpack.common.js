@@ -1,6 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CheckerPlugin } = require('awesome-typescript-loader')
-
+const path = require('path');
 
 module.exports = {
     resolve: {
@@ -31,6 +31,10 @@ module.exports = {
             template: 'src/index-react.html'
         }),
         new CheckerPlugin()
-    ]
+    ],
+    output: {
+        filename: '[name].bundle.js',
+        path: path.resolve(__dirname, 'dist'),
+    },
   };
 
